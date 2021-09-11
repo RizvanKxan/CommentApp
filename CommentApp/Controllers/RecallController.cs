@@ -1,11 +1,8 @@
-﻿using CommentApp.DAL;
+﻿using CommentApp.BLL.Interfaces;
+using CommentApp.BLL.VMs.Recall;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CommentApp.API.Controllers
 {
@@ -13,36 +10,31 @@ namespace CommentApp.API.Controllers
     [ApiController]
     public class RecallController : ControllerBase
     {
-        // GET: api/<RecallController>
+        private readonly IRecallService _recallService;
+
+        public RecallController(IRecallService recallService)
+        {
+            _recallService = recallService;
+        }
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        [Route("getbyid")]
+        public List<InfoRecall> GetFeedbackById(Guid id)
         {
-            return new string[] { "value1", "value2" };
+            return _recallService.FindRecallsByFunc(m => m.Id == id);
         }
 
-        // GET api/<RecallController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet]
+        [Route("getall")]
+        public List<InfoRecall> GetAllFeedbacks()
         {
-            return "value";
+            return _recallService.FindRecallsByFunc(null);
         }
 
-        // POST api/<RecallController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public Guid Create([FromForm] CreateRecall feedback)
         {
-        }
-
-        // PUT api/<RecallController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<RecallController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return (_recallService.CreateRecallAsync(feedback)).Result;
         }
     }
 }
