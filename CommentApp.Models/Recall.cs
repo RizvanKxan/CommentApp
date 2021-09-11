@@ -16,6 +16,6 @@ namespace CommentApp.Models
         public int Grade { get; set; }
         public virtual Product Product { get; set; }
         public virtual List<Comment> Comments { get; set; } = new List<Comment>();
-        public virtual List<MediaFiles> MediaFiles { get; set; } = new List<MediaFiles>();
+        public virtual List<MediaFile> MediaFiles { get; set; } = new List<MediaFile>();
     }
 }

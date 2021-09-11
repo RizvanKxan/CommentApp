@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CommentApp.Models
 {
-    public class MediaFiles : BaseEntity
+    public class MediaFile : BaseEntity
     {
         public string Name { get; set; }
         public string Type { get; set; }

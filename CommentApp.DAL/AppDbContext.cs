@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using CommentApp.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CommentApp.DAL
 {
@@ -10,6 +7,8 @@ namespace CommentApp.DAL
     {
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Recall> Recalls { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<MediaFile> MediaFiles { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
