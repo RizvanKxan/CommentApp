@@ -9,7 +9,7 @@ namespace CommentApp.Models
     /// </summary>
     public class Comment : BaseEntity
     {
-        public DateTime CreationTime { get; set; }
+        public DateTime CreationDate { get; set; }
         public string AuthorName { get; set; }
         public string Text { get; set; }
         public Guid RecallId { get; set; }

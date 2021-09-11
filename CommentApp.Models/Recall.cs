@@ -10,7 +10,7 @@ namespace CommentApp.Models
     public class Recall : BaseEntity
     {
         public string AuthorName { get; set; }
-        public DateTime CreationTime { get; set; }
+        public DateTime CreationDate { get; set; }
         public string Text { get; set; }
         public Guid ProductId { get; set; }
         public int Grade { get; set; }

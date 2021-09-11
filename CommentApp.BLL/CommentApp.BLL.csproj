@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CommentApp.DAL\CommentApp.DAL.csproj" />
+    <ProjectReference Include="..\CommentApp.Models\CommentApp.Models.csproj" />
+  </ItemGroup>
+
 </Project>
