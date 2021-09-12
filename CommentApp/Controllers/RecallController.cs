@@ -32,9 +32,9 @@ namespace CommentApp.API.Controllers
         }
 
         [HttpPost]
-        public Guid Create([FromForm] CreateRecall feedback)
+        public Guid Create([FromForm] CreateRecall recall)
         {
-            return (_recallService.CreateRecallAsync(feedback)).Result;
+            return (_recallService.CreateRecallAsync(recall)).Result;
         }
     }
 }
